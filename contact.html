@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <canvas id="background-canvas"></canvas>
+    <header>
+        <div class="logo">Our Website</div>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="projects.html">Projects</a>
+            <a href="publications.html">Publications</a>
+            <a href="team.html">Team</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <div class="header">
+            <h1>Contact Us</h1>
+            <p>We’d love to hear from you! Reach out for inquiries or collaborations.</p>
+        </div>
+
+        <div id="contact-list" class="section"></div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Our Website. All Rights Reserved.</p>
+    </footer>
+
+    <script src="js/dataLoader.js"></script>
+    <script>
+        loadJSON('data/contacts.json', (data) => {
+            const container = document.getElementById('contact-list');
+            data.forEach(contact => {
+                const div = document.createElement('div');
+                div.className = 'contact-item';
+                div.innerHTML = `
+                    <h2>${contact.type}</h2>
+                    <p>${contact.value}</p>
+                `;
+                container.appendChild(div);
+            });
+        });
+    </script>
+    <script src="js/background.js"></script>
+
+</body>
+</html>

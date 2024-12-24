@@ -1,0 +1,14 @@
+[
+    {
+        "type": "Email",
+        "value": "contact@ourwebsite.com"
+    },
+    {
+        "type": "Phone",
+        "value": "+123 456 7890"
+    },
+    {
+        "type": "Address",
+        "value": "123 Innovation Road, Tech City, TC 45678"
+    }
+]

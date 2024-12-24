@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - Our Website</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <!-- Background Canvas -->
+    <canvas id="background-canvas"></canvas>
+
+    <!-- Header Section -->
+    <header>
+        <div class="logo">Our Website</div>
+        <button id="mobile-toggle" aria-label="Toggle Navigation Menu">☰</button>
+        <nav id="main-nav">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="publications.html">Publications</a></li>
+                <li><a href="team.html">Team</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container">
+        <!-- Welcome Section -->
+        <section id="welcome" aria-labelledby="welcome-title">
+            <h1 id="welcome-title">Welcome to Our Group</h1>
+            <img src="img/placeholder.jpg" alt="Group of professionals working together" class="group-image">
+            <p>We are a team of dedicated professionals working on cutting-edge technology and research.</p>
+        </section>
+
+        <!-- Latest News Section -->
+        <section id="news" aria-labelledby="news-title">
+            <h2 id="news-title">Latest News</h2>
+            <p>Stay up-to-date with the latest announcements and updates.</p>
+            <div id="latest-news" class="dynamic-list">
+                <!-- Dynamic news content -->
+            </div>
+        </section>
+
+        <!-- Latest Publications Section -->
+        <section id="publications" aria-labelledby="publications-title">
+            <h2 id="publications-title">Latest Publications</h2>
+            <p>Explore our recent research and articles.</p>
+            <div id="latest-publications" class="dynamic-list">
+                <!-- Dynamic publications content -->
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2024 Our Website. All Rights Reserved.</p>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="publications.html">Publications</a></li>
+                <li><a href="team.html">Team</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </footer>
+
+    <!-- JavaScript Files -->
+    <script src="js/background.js"></script>
+    <script src="js/dataLoader.js"></script>
+    <script src="js/scripts.js"></script>
+    <script>
+        // Mobile Menu Toggle
+        document.getElementById('mobile-toggle').addEventListener('click', () => {
+            const nav = document.getElementById('main-nav');
+            nav.classList.toggle('active');
+        });
+    </script>
+</body>
+</html>

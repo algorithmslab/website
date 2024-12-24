@@ -1,0 +1,17 @@
+{
+    "Supervisors": [
+        { "name": "Dr. Alex Ford", "role": "Head Supervisor", "joinDay": "2018-05-12", "image": "data/people_images/ali.jpg" }
+    ],
+    "Team Members": [
+        { "name": "John Doe", "role": "CEO", "joinDay": "2020-01-15", "image": "data/people_images/ali.jpg" },
+        { "name": "Jane Smith", "role": "CTO", "joinDay": "2021-03-20", "image": "data/people_images/ali.jpg" }
+    ],
+    "Collaborators": [
+        { "name": "Alice Johnson", "role": "Data Scientist", "joinDay": "2022-06-10" },
+        { "name": "Bob Brown", "role": "Researcher", "joinDay": "2021-11-25" }
+    ],
+    "Alumni": [
+        { "name": "Charlie Green", "role": "Former Engineer", "joinDay": "2019-09-12" },
+        { "name": "Dana White", "role": "Former Designer", "joinDay": "2020-02-18", "image": "data/people_images/ali.jpg" }
+    ]
+}

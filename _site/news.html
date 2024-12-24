@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <canvas id="background-canvas"></canvas>
+    <header>
+        <div class="logo">Our Website</div>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="projects.html">Projects</a>
+            <a href="publications.html">Publications</a>
+            <a href="team.html">Team</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <div class="header">
+            <h1>Latest News</h1>
+            <p>Stay up-to-date with our latest announcements and updates.</p>
+        </div>
+
+        <div id="news-list" class="section"></div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Our Website. All Rights Reserved.</p>
+    </footer>
+
+    <script src="js/dataLoader.js"></script>
+    <script>
+        loadJSON('data/news.json', (data) => {
+            const container = document.getElementById('news-list');
+            data.forEach(news => {
+                const div = document.createElement('div');
+                div.className = 'news-item';
+                div.innerHTML = `
+                    <h2>${news.title}</h2>
+                    <p>${news.description}</p>
+                `;
+                container.appendChild(div);
+            });
+        });
+    </script>
+    <script src="js/background.js"></script>
+
+</body>
+</html>
