@@ -14,7 +14,7 @@
     <header>
         <div class="logo">Our Website</div>
         <button id="mobile-toggle" aria-label="Toggle Navigation Menu">☰</button>
-        <nav id="main-nav">
+        <nav id="main-nav" class="hidden">
             <ul>
                 <li><a href="index.html">Home</a></li>
                 <li><a href="about.html">About</a></li>
@@ -61,25 +61,29 @@
             <nav>
                 <ul>
                     <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="projects.html">Projects</a></li>
-                <li><a href="publications.html">Publications</a></li>
-                <li><a href="team.html">Team</a></li>
-                <li><a href="contact.html">Contact</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="projects.html">Projects</a></li>
+                    <li><a href="publications.html">Publications</a></li>
+                    <li><a href="team.html">Team</a></li>
+                    <li><a href="contact.html">Contact</a></li>
                 </ul>
             </nav>
         </div>
     </footer>
 
     <!-- JavaScript Files -->
-    <script src="js/background.js"></script>
+    <script src="js/contentLoader.js"></script>
     <script src="js/dataLoader.js"></script>
+    <script src="js/background.js"></script>
     <script src="js/scripts.js"></script>
+
+    
+
     <script>
         // Mobile Menu Toggle
         document.getElementById('mobile-toggle').addEventListener('click', () => {
             const nav = document.getElementById('main-nav');
-            nav.classList.toggle('active');
+            nav.classList.toggle('hidden');
         });
     </script>
 </body>

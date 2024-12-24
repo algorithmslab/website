@@ -7,55 +7,77 @@
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
+    <!-- Dynamic Background -->
     <canvas id="background-canvas"></canvas>
+
+    <!-- Header -->
     <header>
         <div class="logo">Our Website</div>
-        <nav>
-            <a href="index.html">Home</a>
-            <a href="about.html">About</a>
-            <a href="projects.html">Projects</a>
-            <a href="publications.html">Publications</a>
-            <a href="team.html">Team</a>
-            <a href="contact.html">Contact</a>
+        <button id="mobile-toggle" aria-label="Toggle Navigation Menu">☰</button>
+        <nav id="main-nav" class="hidden">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="publications.html">Publications</a></li>
+                <li><a href="team.html">Team</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
         </nav>
     </header>
 
-    <div class="container">
-        <div class="header">
+    <!-- Main Content -->
+    <main class="container">
+        <section class="header">
             <h1>Meet Our People</h1>
             <p>Learn about our Supervisors, Team Members, Collaborators, and Alumni.</p>
-        </div>
+        </section>
 
-        <div class="section">
+        <section class="section">
             <h2>Supervisors</h2>
             <div id="supervisors" class="people-list"></div>
             <hr>
-        </div>
+        </section>
 
-        <div class="section">
+        <section class="section">
             <h2>Team Members</h2>
             <div id="team-members" class="people-list"></div>
             <hr>
-        </div>
+        </section>
 
-        <div class="section">
+        <section class="section">
             <h2>Collaborators</h2>
             <div id="collaborators" class="people-list"></div>
             <hr>
-        </div>
+        </section>
 
-        <div class="section">
+        <section class="section">
             <h2>Alumni</h2>
             <div id="alumni" class="people-list"></div>
-        </div>
-    </div>
+        </section>
+    </main>
 
+    <!-- Footer -->
     <footer>
-        <p>&copy; 2024 Our Website. All Rights Reserved.</p>
+        <div class="footer-content">
+            <p>&copy; 2024 Our Website. All Rights Reserved.</p>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="projects.html">Projects</a></li>
+                    <li><a href="publications.html">Publications</a></li>
+                    <li><a href="team.html">Team</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
     </footer>
 
+    <!-- JavaScript Files -->
     <script src="js/dataLoader.js"></script>
     <script>
+        // Function to populate people dynamically
         function populatePeople(type, containerId) {
             loadJSON('data/people.json', (data) => {
                 const people = data[type];
@@ -81,8 +103,13 @@
         populatePeople("Team Members", "team-members");
         populatePeople("Collaborators", "collaborators");
         populatePeople("Alumni", "alumni");
-    </script>
 
-<script src="js/background.js"></script>
+        // Mobile Menu Toggle
+        document.getElementById('mobile-toggle').addEventListener('click', () => {
+            const nav = document.getElementById('main-nav');
+            nav.classList.toggle('hidden');
+        });
+    </script>
+    <script src="js/background.js"></script>
 </body>
 </html>
