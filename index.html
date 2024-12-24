@@ -1,91 +1,101 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home - Our Website</title>
-    <link rel="stylesheet" href="css/styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Home - Our Website</title>
+  <link rel="stylesheet" href="css/styles.css" />
 </head>
 <body>
-    <!-- Background Canvas -->
-    <canvas id="background-canvas"></canvas>
+  <!-- Background Canvas -->
+  <canvas id="background-canvas"></canvas>
 
-    <!-- Header -->
-    <header>
-        <div class="logo">Our Website</div>
-        <button id="mobile-toggle" aria-label="Toggle Navigation Menu">☰</button>
-        <nav id="main-nav" >
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="projects.html">Projects</a></li>
-                <li><a href="publications.html">Publications</a></li>
-                <li><a href="team.html">Team</a></li>
-                <li><a href="News.html">News</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
-    <!-- Main Content -->
-    <main class="container">
-        <!-- Welcome Section -->
-        <section id="welcome" aria-labelledby="welcome-title">
-            <h1 id="welcome-title">Welcome to Our Group</h1>
-            <img src="img/placeholder.jpg" alt="Group of professionals working together" class="group-image">
-            <p>We are a team of dedicated professionals working on cutting-edge technology and research.</p>
-        </section>
+  <!-- Header -->
+  <header>
+    <div class="logo">Our Website</div>
+    <!-- Hamburger button (mobile only) -->
+    <button id="mobile-toggle" aria-label="Toggle Navigation Menu">☰</button>
+    
+    <!-- Nav menu starts hidden on mobile -->
+    <nav id="main-nav" class="hidden">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="publications.html">Publications</a></li>
+        <li><a href="team.html">Team</a></li>
+        <li><a href="News.html">News</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
 
-        <!-- Latest News Section -->
-        <section id="news" aria-labelledby="news-title">
-            <h2 id="news-title">Latest News</h2>
-            <p>Stay up-to-date with the latest announcements and updates.</p>
-            <div id="latest-news" class="dynamic-list">
-                <!-- Dynamic news content -->
-            </div>
-        </section>
+  <!-- Main Content -->
+  <main class="container">
+    <!-- Welcome Section -->
+    <section id="welcome" aria-labelledby="welcome-title">
+      <h1 id="welcome-title">Welcome to Our Group</h1>
+      <img
+        src="img/placeholder.jpg"
+        alt="Group of professionals working together"
+        class="group-image"
+      />
+      <p>
+        We are a team of dedicated professionals working on cutting-edge 
+        technology and research.
+      </p>
+    </section>
 
-        <!-- Latest Publications Section -->
-        <section id="publications" aria-labelledby="publications-title">
-            <h2 id="publications-title">Latest Publications</h2>
-            <p>Explore our recent research and articles.</p>
-            <div id="latest-publications" class="dynamic-list">
-                <!-- Dynamic publications content -->
-            </div>
-        </section>
-    </main>
+    <!-- Latest News Section -->
+    <section id="news" aria-labelledby="news-title">
+      <h2 id="news-title">Latest News</h2>
+      <p>Stay up-to-date with the latest announcements and updates.</p>
+      <div id="latest-news" class="dynamic-list">
+        <!-- Dynamic news content goes here -->
+      </div>
+    </section>
 
-    <!-- Footer -->
-    <footer>
-        <div class="footer-content">
-            <p>&copy; 2024 Our Website. All Rights Reserved.</p>
-            <nav>
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="projects.html">Projects</a></li>
-                    <li><a href="publications.html">Publications</a></li>
-                    <li><a href="team.html">Team</a></li>
-                    <li><a href="News.html">News</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                </ul>
-            </nav>
-        </div>
-    </footer>
+    <!-- Latest Publications Section -->
+    <section id="publications" aria-labelledby="publications-title">
+      <h2 id="publications-title">Latest Publications</h2>
+      <p>Explore our recent research and articles.</p>
+      <div id="latest-publications" class="dynamic-list">
+        <!-- Dynamic publications content goes here -->
+      </div>
+    </section>
+  </main>
 
-    <!-- JavaScript Files -->
-    <script src="js/contentLoader.js"></script>
-    <script src="js/dataLoader.js"></script>
-    <script src="js/background.js"></script>
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <p>&copy; 2024 Our Website. All Rights Reserved.</p>
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="projects.html">Projects</a></li>
+          <li><a href="publications.html">Publications</a></li>
+          <li><a href="team.html">Team</a></li>
+          <li><a href="News.html">News</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </footer>
 
-    <script>
-        document.getElementById('mobile-toggle').addEventListener('click', () => {
-            const nav = document.getElementById('main-nav');
-            nav.classList.toggle('hidden');
-        });
-    </script>
+  <!-- JavaScript Files -->
+  <script src="js/contentLoader.js"></script>
+  <script src="js/dataLoader.js"></script>
+  <script src="js/background.js"></script>
 
+  <script>
+    // Mobile menu toggle
+    const nav = document.getElementById('main-nav');
+    const toggleBtn = document.getElementById('mobile-toggle');
 
-
-
+    toggleBtn.addEventListener('click', () => {
+      nav.classList.toggle('hidden');
+    });
+  </script>
 </body>
 </html>
