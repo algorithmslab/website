@@ -19,7 +19,7 @@ class Particle {
         this.color = color;
         this.dx = Math.random() * 2 - 1;
         this.dy = Math.random() * 2 - 1;
-        this.shrinkSpeed = Math.random() * 0.02 + 0.005; // Different speed for each particle
+        this.shrinkSpeed = Math.random() * 0.01 + 0.005; // Different speed for each particle
     }
 
     draw() {
