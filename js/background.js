@@ -49,10 +49,10 @@ class Particle {
 // Initialize particles
 function initParticles() {
     particles = [];
-    for (let i = 0; i < particleCount; i++) {
+    for (let i = 0; i < Math.floor(particleCount/2); i++) {
         const x = Math.random() * canvas.width;
         const y = Math.random() * canvas.height;
-        const radius = Math.random() * 2 + 5;
+        const radius = Math.random() * 2 + 3;
         const color = "#0078D7";
         particles.push(new Particle(x, y, radius, color));
     }
@@ -86,7 +86,7 @@ function addCluster() {
 
     const colorr = clusterColor[Math.floor(Math.random() * clusterColor.length)];
     const remainingParticles = particleCount - particles.length;
-    const numParticles = Math.max(remainingParticles, 10); // Add at least 10 particles
+    const numParticles = Math.min(Math.max(remainingParticles, 10),Math.floor(remainingParticles/2)); // Add at least 10 particles
 
     for (let i = 0; i < numParticles; i++) {
         const px = x + Math.random() * 50 - 25;
