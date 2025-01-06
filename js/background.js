@@ -49,7 +49,7 @@ class Particle {
 // Initialize particles
 function initParticles() {
     particles = [];
-    for (let i = 0; i < Math.floor(particleCount/2); i++) {
+    for (let i = 0; i < Math.floor(particleCount/4); i++) {
         const x = Math.random() * canvas.width;
         const y = Math.random() * canvas.height;
         const radius = Math.random() * 2 + 3;
