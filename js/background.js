@@ -26,14 +26,28 @@ class Particle {
     }
 
     update() {
-        this.x += this.dx;
-        this.y += this.dy;
+        // --1--
+        // this.x += this.dx;
+        // this.y += this.dy;
 
-        if (this.x <= 0 || this.x >= canvas.width) this.dx *= -1;
-        if (this.y <= 0 || this.y >= canvas.height) this.dy *= -1;
+        // if (this.x <= 0 || this.x >= canvas.width) this.dx *= -1;
+        // if (this.y <= 0 || this.y >= canvas.height) this.dy *= -1;
 
-        this.draw();
+        // this.draw();
+
+        const mouseForce = 0.05; // tweak this
+        dx = this.x - mouse.x;
+        dy = this.y - mouse.y;
+        dist = Math.sqrt(dx*dx + dy*dy);
+        if (dist < mouseRadius) {
+            // repel
+            this.x += dx/dist * mouseForce;
+            this.y += dy/dist * mouseForce;
+        
     }
+    this.draw();
+    
+
 }
 
 // Initialize particles
@@ -60,7 +74,7 @@ function drawConnections() {
                 ctx.beginPath();
                 ctx.moveTo(particles[i].x, particles[i].y);
                 ctx.lineTo(particles[j].x, particles[j].y);
-                ctx.strokeStyle = `rgba(0, 120, 215, ${1 - distance / 100})`;
+                ctx.strokeStyle = rgba(0, 120, 215, ${1 - distance / 100});
                 ctx.lineWidth = 1;
                 ctx.stroke();
             }
