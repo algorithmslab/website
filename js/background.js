@@ -1,140 +1,178 @@
-const canvas = document.getElementById("background-canvas");
-const ctx = canvas.getContext("2d");
+ const canvas = document.getElementById("background-canvas");
+      const ctx = canvas.getContext("2d");
 
-// Resize canvas
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
+      // Resize canvas
+      function resizeCanvas() {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+      }
+      resizeCanvas();
 
-const particleCount = 20;
-const connectionDistance = 150;
-let particles = [];
+      // Number of circles (nodes)
+      const particleCount = 20;
+      // Max distance for drawing connections
+      const connectionDistance = 150;
+      // Array to store our circles
+      let particles = [];
 
-class Particle {
-    constructor(x, y, radius, color) {
-        this.x = x;
-        this.y = y;
-        this.radius = radius;
-        this.color = color;
-        this.dx = Math.random() * 2 - 1;
-        this.dy = Math.random() * 2 - 1;
-        this.highlight = false;
-    }
+      // Particle class (circle node)
+      class Particle {
+        constructor(x, y, radius, color) {
+          this.x = x;
+          this.y = y;
+          this.radius = radius;
+          this.color = color;
+          // Random initial velocity
+          this.dx = Math.random() * 2 - 1;
+          this.dy = Math.random() * 2 - 1;
+          // Whether this circle is "highlighted" by viral spread
+          this.highlight = false;
+        }
 
-    draw() {
-        // Draw the circle node
-        ctx.beginPath();
-        ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-        ctx.fillStyle = this.highlight ? "rgba(255, 255, 0, 0.8)" : this.color;
-        ctx.fill();
+        draw() {
+          // Draw circle
+          ctx.beginPath();
+          ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+          // Fill color depends on highlight
+          if (this.highlight) {
+            ctx.fillStyle = "rgba(255, 255, 0, 0.8)";
+          } else {
+            ctx.fillStyle = this.color;
+          }
+          ctx.fill();
 
-        // Highlight effect (outer ring)
-        if (this.highlight) {
+          // Draw outer ring if highlighted
+          if (this.highlight) {
             ctx.beginPath();
-            ctx.arc(this.x, this.y, this.radius + 5, 0, Math.PI * 2);
+            ctx.arc(this.x, this.y, this.radius + 4, 0, Math.PI * 2);
             ctx.strokeStyle = "rgba(255, 255, 0, 0.8)";
             ctx.lineWidth = 2;
             ctx.stroke();
+          }
         }
-    }
 
-    update() {
-        this.x += this.dx;
-        this.y += this.dy;
+        update() {
+          this.x += this.dx;
+          this.y += this.dy;
 
-        if (this.x <= 0 || this.x >= canvas.width) this.dx *= -1;
-        if (this.y <= 0 || this.y >= canvas.height) this.dy *= -1;
+          // Bounce off the walls
+          if (this.x - this.radius < 0 || this.x + this.radius > canvas.width) {
+            this.dx *= -1;
+          }
+          if (this.y - this.radius < 0 || this.y + this.radius > canvas.height) {
+            this.dy *= -1;
+          }
 
-        this.draw();
-    }
-}
+          this.draw();
+        }
+      }
 
-// Initialize particles
-function initParticles() {
-    particles = [];
-    for (let i = 0; i < particleCount; i++) {
-        const x = Math.random() * canvas.width;
-        const y = Math.random() * canvas.height;
-        const radius = 10; // Node size
-        const color = "#0078D7"; // Default node color
-        particles.push(new Particle(x, y, radius, color));
-    }
-}
+      // Create initial set of particles
+      function initParticles() {
+        particles = [];
+        for (let i = 0; i < particleCount; i++) {
+          const x = Math.random() * canvas.width;
+          const y = Math.random() * canvas.height;
+          const radius = 10; // size of the circle
+          const color = "#0078D7"; // default color
+          particles.push(new Particle(x, y, radius, color));
+        }
+      }
 
-// Draw connections and highlight paths dynamically
-function drawConnections() {
-    for (let i = 0; i < particles.length; i++) {
-        for (let j = i + 1; j < particles.length; j++) {
+      // Draw lines between nearby circles
+      function drawConnections() {
+        for (let i = 0; i < particles.length; i++) {
+          for (let j = i + 1; j < particles.length; j++) {
             const dx = particles[i].x - particles[j].x;
             const dy = particles[i].y - particles[j].y;
             const distance = Math.sqrt(dx * dx + dy * dy);
 
             if (distance < connectionDistance) {
-                ctx.beginPath();
-                ctx.moveTo(particles[i].x, particles[i].y);
-                ctx.lineTo(particles[j].x, particles[j].y);
+              ctx.beginPath();
+              ctx.moveTo(particles[i].x, particles[i].y);
+              ctx.lineTo(particles[j].x, particles[j].y);
 
-                // Dynamic highlight
-                if (particles[i].highlight || particles[j].highlight) {
-                    ctx.strokeStyle = `rgba(255, 255, 0, ${1 - distance / connectionDistance})`;
-                } else {
-                    ctx.strokeStyle = `rgba(255, 255, 255, ${1 - distance / connectionDistance})`;
-                }
-
-                ctx.lineWidth = 1;
-                ctx.stroke();
+              // If either circle is highlighted, draw a "yellow" line
+              if (particles[i].highlight || particles[j].highlight) {
+                ctx.strokeStyle = `rgba(255, 255, 0, ${
+                  1 - distance / connectionDistance
+                })`;
+              } else {
+                // otherwise, white line
+                ctx.strokeStyle = `rgba(255, 255, 255, ${
+                  1 - distance / connectionDistance
+                })`;
+              }
+              ctx.lineWidth = 1;
+              ctx.stroke();
             }
+          }
         }
-    }
-}
+      }
 
-// Animate viral spread
-function spreadViral(index) {
-    particles[index].highlight = true;
+      // Spread the "viral" highlight from one node to its neighbors
+      function spreadViral(index) {
+        // Mark current node as highlighted
+        particles[index].highlight = true;
 
-    // Spread to neighbors within connection distance
-    particles.forEach((p, i) => {
-        if (i !== index) {
-            const dx = particles[index].x - p.x;
-            const dy = particles[index].y - p.y;
+        // Spread to neighbors within connectionDistance
+        for (let i = 0; i < particles.length; i++) {
+          if (i !== index && !particles[i].highlight) {
+            const dx = particles[index].x - particles[i].x;
+            const dy = particles[index].y - particles[i].y;
             const distance = Math.sqrt(dx * dx + dy * dy);
 
+            // If close enough, schedule a delayed highlight spread
             if (distance < connectionDistance) {
-                setTimeout(() => spreadViral(i), 300); // Delay for animation
+              setTimeout(() => {
+                spreadViral(i);
+              }, 300);
             }
+          }
         }
-    });
-}
+      }
 
-// Animation
-function animate() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    particles.forEach((particle) => particle.update());
-    drawConnections();
-    requestAnimationFrame(animate);
-}
+      // Main animation loop
+      function animate() {
+        // Clear the canvas
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-// Trigger viral spread on click
-canvas.addEventListener("click", (event) => {
-    const mouseX = event.clientX;
-    const mouseY = event.clientY;
-
-    particles.forEach((particle, index) => {
-        const dx = particle.x - mouseX;
-        const dy = particle.y - mouseY;
-        const distance = Math.sqrt(dx * dx + dy * dy);
-
-        if (distance < particle.radius) {
-            spreadViral(index);
+        // Update particles (move + draw)
+        for (let i = 0; i < particles.length; i++) {
+          particles[i].update();
         }
-    });
-});
 
-// Handle window resize
-window.addEventListener("resize", () => {
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-    initParticles();
-});
+        // Draw lines between particles
+        drawConnections();
 
-initParticles();
-animate();
+        requestAnimationFrame(animate);
+      }
+
+      // Handle click event to initiate viral spread
+      canvas.addEventListener("click", (event) => {
+        const rect = canvas.getBoundingClientRect();
+        const mouseX = event.clientX - rect.left;
+        const mouseY = event.clientY - rect.top;
+
+        // Check if a circle was clicked
+        for (let i = 0; i < particles.length; i++) {
+          const dx = particles[i].x - mouseX;
+          const dy = particles[i].y - mouseY;
+          const distance = Math.sqrt(dx * dx + dy * dy);
+
+          // If mouse is within the radius of a circle
+          if (distance < particles[i].radius) {
+            spreadViral(i);
+          }
+        }
+      });
+
+      // Re-initialize on window resize
+      window.addEventListener("resize", () => {
+        resizeCanvas();
+        initParticles();
+      });
+
+      // Initialize and start the animation
+      initParticles();
+      animate();
