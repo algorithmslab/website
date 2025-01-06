@@ -26,6 +26,7 @@ class Particle {
     }
 
     update() {
+        // --1--
         // this.x += this.dx;
         // this.y += this.dy;
 
@@ -42,8 +43,9 @@ class Particle {
             // repel
             this.x += dx/dist * mouseForce;
             this.y += dy/dist * mouseForce;
+        this.draw();
     }
-    this.draw();
+    
     
 }
 
