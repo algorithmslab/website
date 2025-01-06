@@ -7,13 +7,25 @@ canvas.height = window.innerHeight;
 
 let particles = [];
 const particleCount = 100;
+const clusterCount = 4;
+let clusters = [];
+
+// Generate clusters
+for (let i = 0; i < clusterCount; i++) {
+    clusters.push({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        color: `hsl(${Math.random() * 360}, 80%, 60%)`,
+    });
+}
 
 class Particle {
-    constructor(x, y, radius, color) {
+    constructor(x, y, radius, color, cluster) {
         this.x = x;
         this.y = y;
         this.radius = radius;
         this.color = color;
+        this.cluster = cluster;
         this.dx = Math.random() * 2 - 1;
         this.dy = Math.random() * 2 - 1;
     }
@@ -26,75 +38,38 @@ class Particle {
     }
 
     update() {
-        // --1--
-        // this.x += this.dx;
-        // this.y += this.dy;
+        const cluster = clusters[this.cluster];
+        const attractionForce = 0.01;
+        const dx = cluster.x - this.x;
+        const dy = cluster.y - this.y;
 
-        // if (this.x <= 0 || this.x >= canvas.width) this.dx *= -1;
-        // if (this.y <= 0 || this.y >= canvas.height) this.dy *= -1;
+        this.dx += dx * attractionForce;
+        this.dy += dy * attractionForce;
 
-        // this.draw();
+        this.x += this.dx;
+        this.y += this.dy;
 
-        const mouseForce = 0.05; // tweak this
-        dx = this.x - mouse.x;
-        dy = this.y - mouse.y;
-        dist = Math.sqrt(dx*dx + dy*dy);
-        if (dist < mouseRadius) {
-            // repel
-            this.x += dx/dist * mouseForce;
-            this.y += dy/dist * mouseForce;
-        
+        if (this.x <= 0 || this.x >= canvas.width) this.dx *= -1;
+        if (this.y <= 0 || this.y >= canvas.height) this.dy *= -1;
+
+        this.draw();
     }
-    this.draw();
-    
-
 }
 
 // Initialize particles
 function initParticles() {
     particles = [];
     for (let i = 0; i < particleCount; i++) {
-        const x = Math.random() * canvas.width;
-        const y = Math.random() * canvas.height;
+        const clusterIndex = Math.floor(Math.random() * clusters.length);
+        const x = clusters[clusterIndex].x + Math.random() * 50 - 25;
+        const y = clusters[clusterIndex].y + Math.random() * 50 - 25;
         const radius = Math.random() * 2 + 1;
-        const color = "#0078D7";
-        particles.push(new Particle(x, y, radius, color));
+        const color = clusters[clusterIndex].color;
+        particles.push(new Particle(x, y, radius, color, clusterIndex));
     }
 }
 
 // Draw connections
 function drawConnections() {
     for (let i = 0; i < particles.length; i++) {
-        for (let j = i + 1; j < particles.length; j++) {
-            const dx = particles[i].x - particles[j].x;
-            const dy = particles[i].y - particles[j].y;
-            const distance = Math.sqrt(dx * dx + dy * dy);
-
-            if (distance < 100) {
-                ctx.beginPath();
-                ctx.moveTo(particles[i].x, particles[i].y);
-                ctx.lineTo(particles[j].x, particles[j].y);
-                ctx.strokeStyle = `rgba(0, 120, 215, ${1 - distance / 100})`;
-                ctx.lineWidth = 1;
-                ctx.stroke();
-            }
-        }
-    }
-}
-
-// Animation
-function animate() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    particles.forEach((particle) => particle.update());
-    drawConnections();
-    requestAnimationFrame(animate);
-}
-
-window.addEventListener("resize", () => {
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-    initParticles();
-});
-
-initParticles();
-animate();
+        for 
