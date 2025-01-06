@@ -12,7 +12,7 @@ function resizeCanvas() {
 resizeCanvas();
 
 // Number of circles (nodes)
-const particleCount = 20000;
+const particleCount = 10;
 // Max distance for drawing connections
 const connectionDistance = 150;
 // Array to store our circles
