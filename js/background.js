@@ -34,6 +34,7 @@ class Particle {
 
         this.draw();
     }
+    
 }
 
 // Initialize particles
@@ -84,3 +85,5 @@ window.addEventListener("resize", () => {
 
 initParticles();
 animate();
+
+
