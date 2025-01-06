@@ -1,99 +1,88 @@
-const canvas = document.getElementById("background-canvas");
-const ctx = canvas.getContext("2d");
+const width = window.innerWidth;
+const height = window.innerHeight;
 
-// Resize canvas
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
+// Create an SVG canvas
+const svg = d3
+  .select("body")
+  .append("svg")
+  .attr("width", width)
+  .attr("height", height);
 
-let particles = [];
-const particleCount = 100;
+// Generate random nodes and links
+const nodeCount = 30;
+const linkCount = 50;
 
-class Particle {
-    constructor(x, y, radius, color) {
-        this.x = x;
-        this.y = y;
-        this.radius = radius;
-        this.color = color;
-        this.dx = Math.random() * 2 - 1;
-        this.dy = Math.random() * 2 - 1;
-    }
+const nodes = d3.range(nodeCount).map((d) => ({ id: d }));
+const links = d3.range(linkCount).map(() => ({
+  source: Math.floor(Math.random() * nodeCount),
+  target: Math.floor(Math.random() * nodeCount),
+}));
 
-    draw() {
-        ctx.beginPath();
-        ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-        ctx.fillStyle = this.color;
-        ctx.fill();
-    }
+// Simulation with forces
+const simulation = d3
+  .forceSimulation(nodes)
+  .force("link", d3.forceLink(links).distance(100).strength(0.5))
+  .force("charge", d3.forceManyBody().strength(-50))
+  .force("center", d3.forceCenter(width / 2, height / 2))
+  .on("tick", ticked);
 
-    update() {
-        // --1--
-        // this.x += this.dx;
-        // this.y += this.dy;
+// Draw the links
+const link = svg
+  .selectAll(".link")
+  .data(links)
+  .enter()
+  .append("line")
+  .attr("class", "link");
 
-        // if (this.x <= 0 || this.x >= canvas.width) this.dx *= -1;
-        // if (this.y <= 0 || this.y >= canvas.height) this.dy *= -1;
+// Draw the nodes
+const node = svg
+  .selectAll(".node")
+  .data(nodes)
+  .enter()
+  .append("circle")
+  .attr("class", "node")
+  .attr("r", 8)
+  .call(
+    d3
+      .drag()
+      .on("start", dragstarted)
+      .on("drag", dragged)
+      .on("end", dragended)
+  );
 
-        // this.draw();
-    
-        const mouseForce = 0.05; // tweak this
-        dx = this.x - mouse.x;
-        dy = this.y - mouse.y;
-        dist = Math.sqrt(dx*dx + dy*dy);
-        if (dist < mouseRadius) {
-            // repel
-            this.x += dx/dist * mouseForce;
-            this.y += dy/dist * mouseForce;
-        this.draw();
-    }
-    
-    
+// Update node and link positions on each tick
+function ticked() {
+  link
+    .attr("x1", (d) => d.source.x)
+    .attr("y1", (d) => d.source.y)
+    .attr("x2", (d) => d.target.x)
+    .attr("y2", (d) => d.target.y);
+
+  node.attr("cx", (d) => d.x).attr("cy", (d) => d.y);
 }
 
-// Initialize particles
-function initParticles() {
-    particles = [];
-    for (let i = 0; i < particleCount; i++) {
-        const x = Math.random() * canvas.width;
-        const y = Math.random() * canvas.height;
-        const radius = Math.random() * 2 + 1;
-        const color = "#0078D7";
-        particles.push(new Particle(x, y, radius, color));
-    }
+// Dragging behavior
+function dragstarted(event, d) {
+  if (!event.active) simulation.alphaTarget(0.3).restart();
+  d.fx = d.x;
+  d.fy = d.y;
 }
 
-// Draw connections
-function drawConnections() {
-    for (let i = 0; i < particles.length; i++) {
-        for (let j = i + 1; j < particles.length; j++) {
-            const dx = particles[i].x - particles[j].x;
-            const dy = particles[i].y - particles[j].y;
-            const distance = Math.sqrt(dx * dx + dy * dy);
-
-            if (distance < 100) {
-                ctx.beginPath();
-                ctx.moveTo(particles[i].x, particles[i].y);
-                ctx.lineTo(particles[j].x, particles[j].y);
-                ctx.strokeStyle = `rgba(0, 120, 215, ${1 - distance / 100})`;
-                ctx.lineWidth = 1;
-                ctx.stroke();
-            }
-        }
-    }
+function dragged(event, d) {
+  d.fx = event.x;
+  d.fy = event.y;
 }
 
-// Animation
-function animate() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    particles.forEach((particle) => particle.update());
-    drawConnections();
-    requestAnimationFrame(animate);
+function dragended(event, d) {
+  if (!event.active) simulation.alphaTarget(0);
+  d.fx = null;
+  d.fy = null;
 }
 
+// Handle window resize
 window.addEventListener("resize", () => {
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-    initParticles();
+  const newWidth = window.innerWidth;
+  const newHeight = window.innerHeight;
+  svg.attr("width", newWidth).attr("height", newHeight);
+  simulation.force("center", d3.forceCenter(newWidth / 2, newHeight / 2));
 });
-
-initParticles();
-animate();
