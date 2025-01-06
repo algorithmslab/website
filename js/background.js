@@ -7,40 +7,27 @@ canvas.height = window.innerHeight;
 
 const particleCount = 20;
 const connectionDistance = 150;
-const images = ["user1.png", "user2.png", "user3.png"]; // Replace with your images
 let particles = [];
 
 class Particle {
-    constructor(x, y, radius, imageSrc) {
+    constructor(x, y, radius, color) {
         this.x = x;
         this.y = y;
         this.radius = radius;
-        this.image = new Image();
-        this.image.src = imageSrc;
+        this.color = color;
         this.dx = Math.random() * 2 - 1;
         this.dy = Math.random() * 2 - 1;
         this.highlight = false;
     }
 
     draw() {
-        // Draw the image node
-        if (this.image.complete) {
-            ctx.drawImage(
-                this.image,
-                this.x - this.radius,
-                this.y - this.radius,
-                this.radius * 2,
-                this.radius * 2
-            );
-        } else {
-            // Fallback to a circle while the image loads
-            ctx.beginPath();
-            ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-            ctx.fillStyle = "#0078D7";
-            ctx.fill();
-        }
+        // Draw the circle node
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+        ctx.fillStyle = this.highlight ? "rgba(255, 255, 0, 0.8)" : this.color;
+        ctx.fill();
 
-        // Highlight effect
+        // Highlight effect (outer ring)
         if (this.highlight) {
             ctx.beginPath();
             ctx.arc(this.x, this.y, this.radius + 5, 0, Math.PI * 2);
@@ -61,15 +48,15 @@ class Particle {
     }
 }
 
-// Initialize particles with images
+// Initialize particles
 function initParticles() {
     particles = [];
     for (let i = 0; i < particleCount; i++) {
         const x = Math.random() * canvas.width;
         const y = Math.random() * canvas.height;
-        const radius = 20; // Adjust for image size
-        const imageSrc = images[Math.floor(Math.random() * images.length)];
-        particles.push(new Particle(x, y, radius, imageSrc));
+        const radius = 10; // Node size
+        const color = "#0078D7"; // Default node color
+        particles.push(new Particle(x, y, radius, color));
     }
 }
 
