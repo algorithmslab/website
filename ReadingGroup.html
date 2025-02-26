@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reading Group</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <!-- Dynamic Background -->
+    <canvas id="background-canvas"></canvas>
+
+    <!-- Header -->
+    <header>
+        <div class="logo">Our Website</div>
+        <button id="mobile-toggle" aria-label="Toggle Navigation Menu">☰</button>
+        <nav id="main-nav" class="hidden">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="publications.html">Publications</a></li>
+                <li><a href="team.html">Team</a></li>
+                <li><a href="news.html">News</a></li>
+                <li><a href="ReadingGroup.html">News</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container">
+        <section class="header">
+            <h1>Latest News</h1>
+            <p>Stay up-to-date with our latest Reading Group Meetings.</p>
+        </section>
+
+        <section id="news-list" class="section">
+            <!-- News items will be dynamically loaded here -->
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2024 Our Website. All Rights Reserved.</p>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="projects.html">Projects</a></li>
+                    <li><a href="publications.html">Publications</a></li>
+                    <li><a href="team.html">Team</a></li>
+                    <li><a href="news.html">News</a></li>
+                    <li><a href="ReadingGroup.html">News</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </footer>
+
+    <!-- JavaScript Files -->
+    <script src="js/dataLoader.js"></script>
+    <script>
+        // Load news data dynamically
+        loadJSON('data/readinggroup.json', (data) => {
+            const container = document.getElementById('news-list');
+            data.forEach(news => {
+                const div = document.createElement('div');
+                div.className = 'news-item';
+                div.innerHTML = `
+                    <h2>${news.title}</h2>
+                    <p>${news.presented_by}</p>
+                    <p>${news.time}</p>
+                `;
+                container.appendChild(div);
+            });
+        });
+
+        // Mobile Menu Toggle
+        document.getElementById('mobile-toggle').addEventListener('click', () => {
+            const nav = document.getElementById('main-nav');
+            nav.classList.toggle('hidden');
+        });
+    </script>
+    <script src="js/background.js"></script>
+</body>
+</html>
