@@ -2,11 +2,15 @@
     {
         "title": "Deep Graph Contrastive Representation Learning",
         "presented_by": "Ali",
-        "time": "26.02.2025"
+        "time": "26.02.2025",
+        "authors": "Yanqiao Zhu, et al."  
+        "conference/journal name": "ICML Workshop on Graph"
     },
     {
         "title": "GNNs best paper",
         "presented_by": "Adam",
-        "time": "05.03.-2025"
+        "time": "05.03.-2025",
+        "authors": "Adam."  
+        "conference/journal name": "First Workshop on Earth"
     }
 ]
