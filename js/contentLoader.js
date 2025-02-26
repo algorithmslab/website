@@ -11,7 +11,7 @@ function loadJSON(url, callback) {
 // Function to render the last 3 items from a dataset
 function renderLastThree(data, containerId, itemClass) {
     const container = document.getElementById(containerId);
-    const lastThree = data.slice(-3).reverse(); // Get the last 3 items
+    const lastThree = data.slice(0, 3); // Get the last 3 items
     lastThree.forEach(item => {
         const div = document.createElement("div");
         div.className = itemClass;
