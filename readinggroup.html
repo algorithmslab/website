@@ -43,8 +43,7 @@
                 div.className = 'readinggroup-item';
                 div.innerHTML = `
                     <h2>${readinggroup.title}</h2>
-                    <p>${readinggroup.presented_by}</p>
-                    <p>${readinggroup.time}</p>
+                    by <p>${readinggroup.presented_by}</p> in <p>${readinggroup.time}</p>
                 `;
                 container.appendChild(div);
             });
