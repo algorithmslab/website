@@ -19,12 +19,12 @@
     <!-- Main Content -->
     <main class="container">
         <section class="header">
-            <h1>Latest News</h1>
+            <h1>Latest Reading Group Meetings</h1>
             <p>Stay up-to-date with our latest Reading Group Meetings.</p>
         </section>
 
-        <section id="news-list" class="section">
-            <!-- News items will be dynamically loaded here -->
+        <section id="readinggroup-list" class="section">
+            <!-- readinggroup items will be dynamically loaded here -->
         </section>
     </main>
 
@@ -35,12 +35,12 @@
     <!-- JavaScript Files -->
     <script src="js/dataLoader.js"></script>
     <script>
-        // Load news data dynamically
+        // Load readinggroup data dynamically
         loadJSON('data/readinggroup.json', (data) => {
-            const container = document.getElementById('news-list');
-            data.forEach(news => {
+            const container = document.getElementById('readinggroup-list');
+            data.forEach(readinggroup => {
                 const div = document.createElement('div');
-                div.className = 'news-item';
+                div.className = 'readinggroup-item';
                 div.innerHTML = `
                     <h2>${readinggroup.title}</h2>
                     <p>${readinggroup.presented_by}</p>
