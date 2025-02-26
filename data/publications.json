@@ -1,86 +1,86 @@
 [
     {
-        "title": "Random Majority Opinion Diffusion: Stabilization Time, Absorbing States, and Influential Nodes",
-        "description": "2023, The 22nd International Conference on Autonomous Agents and Multiagent Systems (AAMAS-23) (CORE A*). Author: Ahad N. Zehmakan. (Nominated for Best Paper Award)"
-    },
-    {
-        "title": "Why Rumors Spread Fast in Social Networks, and How to Stop It",
-        "description": "2023, The 32nd International Joint Conference on Artificial Intelligence (IJCAI-23) (CORE A*). Authors: Ahad N. Zehmakan, Charlotte Out, Sajjad Hesamipour Khelejan."
-    },
-    {
-        "title": "Minimum Target Sets in Non-Progressive Threshold Models: When Timing Matters",
-        "description": "2023, The 26th European Conference on Artificial Intelligence (ECAI-23) (CORE A). Authors: Hossein Solatni, Ahad N. Zehmakan, Attabak B. Hushmandi."
-    },
-    {
-        "title": "Mitigating Misinformation Spreading in Social Networks Via Edge Blocking",
-        "description": "2023, The 20th Pacific Rim International Conference on Artificial Intelligence (PRICAI) (CORE B). Authors: Ahad N. Zehmakan, Khushvind Maurya."
-    },
-    {
-        "title": "Effective Vaccination Strategies in Network-based SIR Model",
-        "description": "2023, Chaos, Solitons & Fractals (Chaos) (SJR Q1). Authors: Sourin Chatterjee, Ahad N. Zehmakan."
-    },
-    {
-        "title": "Inter-Domain Routing with Extensible Criteria",
-        "description": "2023. Authors: S. Tabaeiaghdaei, M. Wyss, G. Giuliari, J. Bommel, Ahad N. Zehmakan, A. Perrig."
-    },
-    {
-        "title": "A Fast Algorithm for Moderating Critical Nodes via Edge Removal",
-        "description": "2023, IEEE Transactions on Knowledge and Data Engineering (TKDE) (SJR Q1). Authors: Changan Liu, Xiaotian Zhou, Ahad N. Zehmakan, Zhongzhi Zhang."
-    },
-    {
-        "title": "Graph-based Generalization of Galam Model: Convergence Time and Influential Nodes",
-        "description": "2023, Physics. Authors: Sining Li, Ahad N. Zehmakan."
-    },
-    {
-        "title": "A Novel Room-Based Epidemic Model: Quarantine, Testing, and Vaccination Strategies",
-        "description": "2023, Chaos, Solitons & Fractals (Chaos) (SJR Q1). Authors: Sourin Chatterjee, Ahad N. Zehmakan, Sujay Rastogi."
-    },
-    {
-        "title": "Majority Vote In Social Networks",
-        "description": "2023, Information Sciences (SJR Q1). Authors: Charlotte Out, Ahad N. Zehmakan."
-    },
-    {
-        "title": "Majority-based Preference Diffusion on Social Networks",
-        "description": "2024, The 23rd International Conference on Autonomous Agents and Multiagent Systems (AAMAS-24) (CORE A*). Author: Ahad N. Zehmakan."
-    },
-    {
-        "title": "Viral Marketing in Social Networks with Competing Products",
-        "description": "2024, The 23rd International Conference on Autonomous Agents and Multiagent Systems (AAMAS-24) (CORE A*). Authors: Ahad N. Zehmakan, Xiaotian Zhou, Zhongzhi Zhang."
-    },
-    {
-        "title": "Resistance Eccentricity in Graphs: Distribution, Computation and Optimization",
-        "description": "2024, The 40th IEEE International Conference on Data Engineering (ICDE-24) (CORE A*). Authors: Zenan Lu, Xiaotian Zhou, Ahad N. Zehmakan, Zhongzhi Zhang."
-    },
-    {
-        "title": "Majority Opinion Diffusion: When Tie-breaking Rule Matters",
-        "description": "2024, Journal of Autonomous Agents and Multiagent Systems (JAAMAS) (CORE A). Author: Ahad N. Zehmakan."
-    },
-    {
-        "title": "Fast Query of Biharmonic Distance in Networks",
-        "description": "2024, The 30th ACM SIGKDD Conference on Knowledge Discovery and Data Mining (KDD-24) (CORE A*). Authors: Changan Liu, Ahad N. Zehmakan, Zhongzhi Zhang."
-    },
-    {
-        "title": "A First Principles Approach to Trust-Based Recommendation Systems",
-        "description": "2024. Authors: Paras Stefanopoulos, Ahad N. Zehmakan, Sourin Chatterjee."
-    },
-    {
-        "title": "The Impact of External Sources on the Friedkin--Johnsen Model",
-        "description": "2024, The Conference on Information and Knowledge Management (CIKM-24) (CORE A). Authors: Carlotte Out, Sijing Tu, Stefan Neumann, Ahad N. Zehmakan."
-    },
-    {
-        "title": "Spectral Cluster Supertree: Fast and Statistically Robust Merging of Rooted Phylogenetic Trees",
-        "description": "2024, Frontiers in Molecular Biosciences (SJR Q1). Authors: Robert McArthur, Ahad N. Zehmakan, Michael Charleston, Yu Lin, Gavin Huttley."
-    },
-    {
-        "title": "Do Stubborn Users Always Cause More Polarization and Disagreement? A Mathematical Study",
-        "description": "2025, The 18th ACM International Conference on Web Search and Data Mining (WSDM-25) (CORE A). Authors: Mohammad Shirzadi, Ahad N. Zehmakan."
+        "title": "More Efficient Sybil Detection Mechanisms Leveraging Resistance of Users to Attack Requests",
+        "description": "2025, The 24th International Conference on Autonomous Agents and Multiagent Systems (AAMAS-25) (CORE A*). Authors: Ali Safarpoor Dehkordi, Ahad N. Zehmakan."
     },
     {
         "title": "DeepSN: A Sheaf Neural Framework for Influence Maximization",
         "description": "2025, The 39th Annual AAAI Conference on Artificial Intelligence (AAAI-25) (CORE A*). Authors: Asela Hevapathige, Qing Wang, Ahad N. Zehmakan."
     },
     {
-        "title": "More Efficient Sybil Detection Mechanisms Leveraging Resistance of Users to Attack Requests",
-        "description": "2025, The 24th International Conference on Autonomous Agents and Multiagent Systems (AAMAS-25) (CORE A*). Authors: Ali Safarpoor Dehkordi, Ahad N. Zehmakan."
+        "title": "Do Stubborn Users Always Cause More Polarization and Disagreement? A Mathematical Study",
+        "description": "2025, The 18th ACM International Conference on Web Search and Data Mining (WSDM-25) (CORE A). Authors: Mohammad Shirzadi, Ahad N. Zehmakan."
+    },
+    {
+        "title": "Spectral Cluster Supertree: Fast and Statistically Robust Merging of Rooted Phylogenetic Trees",
+        "description": "2024, Frontiers in Molecular Biosciences (SJR Q1). Authors: Robert McArthur, Ahad N. Zehmakan, Michael Charleston, Yu Lin, Gavin Huttley."
+    },
+    {
+        "title": "The Impact of External Sources on the Friedkin--Johnsen Model",
+        "description": "2024, The Conference on Information and Knowledge Management (CIKM-24) (CORE A). Authors: Carlotte Out, Sijing Tu, Stefan Neumann, Ahad N. Zehmakan."
+    },
+    {
+        "title": "A First Principles Approach to Trust-Based Recommendation Systems",
+        "description": "2024. Authors: Paras Stefanopoulos, Ahad N. Zehmakan, Sourin Chatterjee."
+    },
+    {
+        "title": "Fast Query of Biharmonic Distance in Networks",
+        "description": "2024, The 30th ACM SIGKDD Conference on Knowledge Discovery and Data Mining (KDD-24) (CORE A*). Authors: Changan Liu, Ahad N. Zehmakan, Zhongzhi Zhang."
+    },
+    {
+        "title": "Majority Opinion Diffusion: When Tie-breaking Rule Matters",
+        "description": "2024, Journal of Autonomous Agents and Multiagent Systems (JAAMAS) (CORE A). Author: Ahad N. Zehmakan."
+    },
+    {
+        "title": "Resistance Eccentricity in Graphs: Distribution, Computation and Optimization",
+        "description": "2024, The 40th IEEE International Conference on Data Engineering (ICDE-24) (CORE A*). Authors: Zenan Lu, Xiaotian Zhou, Ahad N. Zehmakan, Zhongzhi Zhang."
+    },
+    {
+        "title": "Viral Marketing in Social Networks with Competing Products",
+        "description": "2024, The 23rd International Conference on Autonomous Agents and Multiagent Systems (AAMAS-24) (CORE A*). Authors: Ahad N. Zehmakan, Xiaotian Zhou, Zhongzhi Zhang."
+    },
+    {
+        "title": "Majority-based Preference Diffusion on Social Networks",
+        "description": "2024, The 23rd International Conference on Autonomous Agents and Multiagent Systems (AAMAS-24) (CORE A*). Author: Ahad N. Zehmakan."
+    },
+    {
+        "title": "Majority Vote In Social Networks",
+        "description": "2023, Information Sciences (SJR Q1). Authors: Charlotte Out, Ahad N. Zehmakan."
+    },
+    {
+        "title": "A Novel Room-Based Epidemic Model: Quarantine, Testing, and Vaccination Strategies",
+        "description": "2023, Chaos, Solitons & Fractals (Chaos) (SJR Q1). Authors: Sourin Chatterjee, Ahad N. Zehmakan, Sujay Rastogi."
+    },
+    {
+        "title": "Graph-based Generalization of Galam Model: Convergence Time and Influential Nodes",
+        "description": "2023, Physics. Authors: Sining Li, Ahad N. Zehmakan."
+    },
+    {
+        "title": "A Fast Algorithm for Moderating Critical Nodes via Edge Removal",
+        "description": "2023, IEEE Transactions on Knowledge and Data Engineering (TKDE) (SJR Q1). Authors: Changan Liu, Xiaotian Zhou, Ahad N. Zehmakan, Zhongzhi Zhang."
+    },
+    {
+        "title": "Inter-Domain Routing with Extensible Criteria",
+        "description": "2023. Authors: S. Tabaeiaghdaei, M. Wyss, G. Giuliari, J. Bommel, Ahad N. Zehmakan, A. Perrig."
+    },
+    {
+        "title": "Effective Vaccination Strategies in Network-based SIR Model",
+        "description": "2023, Chaos, Solitons & Fractals (Chaos) (SJR Q1). Authors: Sourin Chatterjee, Ahad N. Zehmakan."
+    },
+    {
+        "title": "Mitigating Misinformation Spreading in Social Networks Via Edge Blocking",
+        "description": "2023, The 20th Pacific Rim International Conference on Artificial Intelligence (PRICAI) (CORE B). Authors: Ahad N. Zehmakan, Khushvind Maurya."
+    },
+    {
+        "title": "Minimum Target Sets in Non-Progressive Threshold Models: When Timing Matters",
+        "description": "2023, The 26th European Conference on Artificial Intelligence (ECAI-23) (CORE A). Authors: Hossein Solatni, Ahad N. Zehmakan, Attabak B. Hushmandi."
+    },
+    {
+        "title": "Why Rumors Spread Fast in Social Networks, and How to Stop It",
+        "description": "2023, The 32nd International Joint Conference on Artificial Intelligence (IJCAI-23) (CORE A*). Authors: Ahad N. Zehmakan, Charlotte Out, Sajjad Hesamipour Khelejan."
+    },
+    {
+        "title": "Random Majority Opinion Diffusion: Stabilization Time, Absorbing States, and Influential Nodes",
+        "description": "2023, The 22nd International Conference on Autonomous Agents and Multiagent Systems (AAMAS-23) (CORE A*). Author: Ahad N. Zehmakan. (Nominated for Best Paper Award)"
     }
 ]
