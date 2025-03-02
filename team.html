@@ -68,7 +68,7 @@
                         <img src="${person.image || 'img/Unknown_person.jpg'}" alt="${person.name}" class="person-image">
                         <h3>${person.name}</h3>
                         <p>Role: ${person.role}</p>
-                        <p>Joined: ${new Date(person.joinDay).toLocaleDateString()}</p>
+                        ${person.joinDay ? `<p>Joined: ${new Date(person.joinDay).toLocaleDateString()}</p>` : ''}
                     `;
                     container.appendChild(div);
                 });
