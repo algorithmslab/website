@@ -1,10 +1,42 @@
 [
     {
-        "title": "News Item 1",
-        "description": "Details about the first news item."
+        "title": "Paper Accepted in AAMAS-2025",
+        "description": "Our paper on Sybil Detection Mechanisms was accepted in AAMAS-2025. Big Congrats to Ali."
     },
     {
-        "title": "News Item 2",
-        "description": "Details about the second news itemDetails about the second news item.Details about the second news item.Details about the second news item.Details about the second news item.Details about the second news item.Details about the second news item.."
+        "title": "Senior PC Member for ECAI-2025",
+        "description": "I will be serving as a Senior PC member in ECAI-2025."
+    },
+    {
+        "title": "PC Member for IJCAI-2025",
+        "description": "I will be serving as a PC member in IJCAI-2025."
+    },
+    {
+        "title": "Paper Accepted in AAAI-2025",
+        "description": "Our paper 'DeepSN: A Sheaf Neural Framework for Influence Maximization' was accepted in AAAI-2025. Big Congrats to Asela."
+    },
+    {
+        "title": "Invited Talk at UNSW",
+        "description": "Excited to give an invited talk in Cybersecurity and Trustworthy Systems Researchers Meet at UNSW."
+    },
+    {
+        "title": "Paper Accepted in WSDM-2025",
+        "description": "Our paper on stubborn agents in the FJ model will appear in WSDM-2025. Big Congrats to Mohammad."
+    },
+    {
+        "title": "Paper Accepted in Frontiers in Molecular Biosciences",
+        "description": "Our paper on Phylogenetic Trees was accepted by Frontiers in Molecular Biosciences. Congrats Robert."
+    },
+    {
+        "title": "Attending ICPC Finals as a Coach",
+        "description": "I will be attending the ICPC Finals in Astana as a coach. Congrats to our team."
+    },
+    {
+        "title": "PC Member for AAMAS-2025",
+        "description": "I will be serving as a PC member in AAMAS-2025."
+    },
+    {
+        "title": "Paper Accepted in CIKM-2024",
+        "description": "We have a paper accepted in CIKM-2024 with my collaborators from Cambridge, KTH, and TU Wien."
     }
 ]
