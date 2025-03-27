@@ -1,5 +1,12 @@
 [
     {
+        "title": "Feature Transportation Improves Graph Neural Networks",
+        "presented_by": "Asela",
+        "time": "26.03.2025",
+        "authors": "Moshe Eliasof, et al.",
+        "conferencejournalname": "AAAI 2024"
+    },
+    {
         "title": "A Note on Over-Smoothing for Graph Neural Networks",
         "presented_by": "Mohammad",
         "time": "05.03.2025",
@@ -10,7 +17,7 @@
         "title": "Deep Graph Contrastive Representation Learning",
         "presented_by": "Ali",
         "time": "26.02.2025",
-        "authors": "Yanqiao Zhu, et al."  ,
+        "authors": "Yanqiao Zhu, et al.",
         "conferencejournalname": "ICML Workshop on Graph"
     }
     
